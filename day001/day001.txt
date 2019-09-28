@@ -18,8 +18,30 @@ tree edu // structure  of block chain
 geth attach ipc:/root/edu/geth.ipc //실행
 personal.newAccount() // 2번 실행하여 계정 2개 만들기
 pw: 1234  //비번
-eth.accounts //계정 2개 만들어진지 확인
+eth.accounts //계정 2개 만들어진지 확인, 지갑주소임
 
 miner.start(1) //채굴 시작
 eth.blockNumber //블록개수 확인
 eth.getBalance(eth.accounts[0]) //계정의 채굴 보상
+//또는
+eth.getBalance("0x47837140e9223b40be11fe743f5b061740f2d66f") //계정의 지갑주소로 확인
+
+
+
+web3.fromWei(eth.getBalance("0x47837140e9223b40be11fe743f5b061740f2d66f"), "ether") //이더리움 금액 확인?
+ personal.unlockAccount(eth.accounts[0], "1234", 0) //  unlock
+ eth.sendTransaction({from:eth.accounts[0], to:eth.accounts[1], value:web3.toWei(10, "ether")}) // 송금
+
+//범용 지갑 크롬에 설치
+//chrome web store 가서 메타 마스크 설치
+//비번:12345678
+novel cost sad happy tomorrow sadness anxiety alone expose predict drink electric//비밀백업구문 복사
+
+//메타마스크 8545포트로 로컬서버 접속환경 만든후
+//accounts를 복사하면 주소가 복사됨
+// 이 주소를  eth.sendTransaction의 to 에 넣어서 돈을 전송받으면 됨
+
+
+//json rpc
+//https://github.com/ethereum/wiki/wiki/JSON-RPC
+

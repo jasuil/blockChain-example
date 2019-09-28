@@ -45,3 +45,14 @@ novel cost sad happy tomorrow sadness anxiety alone expose predict drink electri
 //json rpc
 //https://github.com/ethereum/wiki/wiki/JSON-RPC
 
+//getBalance 나 web3_clientVersion의 data부분을 
+//post로 JSON형태로 localhost:8546 에 보낸다.
+
+web3.toDecimal("0x13f306a2409fc0000") //16진수의 돈을 10진수로 보기, 웹에서 hexadecimal to decimal 역시 가능
+
+
+//node js 설치 후 웹소켓 설치
+npm install -g wscat
+wscat -c "ws://localhost:8546" //connect websocker 
+//JSON RPC 사이트의 example 해보기
+//예 {"jsonrpc":"2.0","method":"eth_getBalance","params":["0x00cA37B7c242c031A66c451a5D0B837FE10452Ed", "latest"],"id":1}

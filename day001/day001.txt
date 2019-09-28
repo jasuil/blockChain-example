@@ -14,8 +14,12 @@ ps aux
 cd ~ or cd  // go to root
 tree edu // structure  of block chain
 
-geth 
+//geth 실행 
 geth attach ipc:/root/edu/geth.ipc //실행
 personal.newAccount() // 2번 실행하여 계정 2개 만들기
 pw: 1234  //비번
 eth.accounts //계정 2개 만들어진지 확인
+
+miner.start(1) //채굴 시작
+eth.blockNumber //블록개수 확인
+eth.getBalance(eth.accounts[0]) //계정의 채굴 보상

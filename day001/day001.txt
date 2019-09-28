@@ -1,0 +1,2 @@
+/docker folder image making
+docker build -t eth-img .

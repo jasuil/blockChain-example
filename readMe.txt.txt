@@ -10,4 +10,5 @@ docker download
 if you use window, download desktop version.
 
 
-
+git url
+https://github.com/swkim109/kosmo.git

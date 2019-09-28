@@ -1,2 +1,21 @@
-/docker folder image making
+﻿/docker folder image making
 docker build -t eth-img .
+
+
+docker ps -a
+docker logs -f eth-kosmo //로그 보기
+docker exec -it eth-kosmo /bin/bash //내부에 콘솔로 로그인
+docker stop eth-kosmo
+docker start eth-kosmo
+
+//linux process show
+ps aux
+
+cd ~ or cd  // go to root
+tree edu // structure  of block chain
+
+geth 
+geth attach ipc:/root/edu/geth.ipc //실행
+personal.newAccount() // 2번 실행하여 계정 2개 만들기
+pw: 1234  //비번
+eth.accounts //계정 2개 만들어진지 확인

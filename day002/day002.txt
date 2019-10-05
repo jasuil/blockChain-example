@@ -13,3 +13,6 @@ int[5] public arr = [int(1),-2,3,4,5];
 기본적으로
  배열 function f() public {        uint[] memory arr = [uint(100), 200, 300]; } 
 uint(100)처럼 가변배열을 배열을 선언시 이용할 수 없다.
+
+
+function 에서 public 같은 visibility를 생략하면 internal

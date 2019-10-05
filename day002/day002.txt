@@ -1,0 +1,4 @@
+﻿ 이더리움의 솔리디티 언어를 통해 작성
+remix 
+http://remix.ethereum.org
+에서 작성가능

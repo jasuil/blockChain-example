@@ -2,3 +2,14 @@
 remix 
 http://remix.ethereum.org
 에서 작성가능
+
+
+gas의 존재이유?
+무한루프 방지
+
+int[5] public arr = [int(1),-2,3,4,5];
+처음 index에 유형을 지정해주어야 함
+
+기본적으로
+ 배열 function f() public {        uint[] memory arr = [uint(100), 200, 300]; } 
+uint(100)처럼 가변배열을 배열을 선언시 이용할 수 없다.

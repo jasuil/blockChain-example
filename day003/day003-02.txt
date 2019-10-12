@@ -23,3 +23,28 @@ truffle test testHi2.js
 
 배포된 주소 확인
 truffle networks
+
+
+Dapp 프로젝트
+dapp-sample에 가서
+/client 폴더에서
+npm install
+root folder에서
+truffle compile
+-> client/src/contracts에 파일이 빌드되어 배포됨
+
+트러플 배포
+truffle migrate
+
+client 폴더에 가서
+npm start
+
+
+metamask에
+localhost:5777
+네트워크 등록
+
+사용자 주소 복사-> send_u.js에 주소 넣기
+루트폴더에서
+truffle console
+exec ./send_u.js

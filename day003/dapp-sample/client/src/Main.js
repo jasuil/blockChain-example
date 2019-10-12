@@ -28,18 +28,39 @@ class Main extends Component {
     };
 
     async componentDidMount() {
-      //TODO
 
+      try{
+        const web3 = await getWeb3();
+        const accounts = await web3.eth.getAccounts();
+        const networkId = await web3.eth.net.getId()
+
+        const deployedNetwork = SimpleStorage.networks[networkId]
+        const instance = new web3.eth.Contract(
+          SimpleStorage.abi,
+          deployedNetwork && deployedNetwork.address,
+        )
+
+console.log(deployedNetwork.address);
+
+        this.setState({web3, accounts, networkId, contract: instance})
+      } catch (error){
+        alert("failed to load web3, accounts or contract")
+        console.log(error)
+      }
     }
 
     handleSend = async () => {
         //TODO
-
-
+        const {accounts, contract} = this.state
+        if(this.state.val > 0) {
+          this.setState({pending: !this.state.pending})
+          try {
+            await contract.methods.set(this.state.val).send({from: accounts[0]})
+          } catch(error) {
+            this.setState({pending: false})
+          }
+        }
     }
-
-
-
 
     handleChange = (e) => {
 
@@ -109,4 +130,3 @@ class Main extends Component {
 
 
 export default Main;
-

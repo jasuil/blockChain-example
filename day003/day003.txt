@@ -11,3 +11,12 @@ metamask는 트랜잭션을 기록할때 비용을 처리하는
 전자서명과 같은
 
 bytecode는 이더리움에 배포 
+
+
+리액트 프로젝트 만들기(node js and npm설치시)
+npx create-react-app myreact
+
+
+atom설치
+플러그인 설치
+platformio-ide-terminal -> ctrl + ~ -> terminal

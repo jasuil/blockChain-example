@@ -44,6 +44,9 @@ truffle init
 npm create-react-app client
 
 
+웹서버인(?) 테스트 네트워크
+ganache실행
+
 http://trufflesuite.com
 에서
 suit>ganache
@@ -56,3 +59,40 @@ Ganache-2.1.1-win-x64.appx
 Ganache-2.1.1-win-setup.exe
 
 -> quick start
+
+
+트러플 프로젝트에서
+truffle-config.js
+networks에서
+development: {
+     host: "127.0.0.1",     // ganache network server
+     port: 7545,            // Standard Ethereum port (default: none)
+     network_id: "5777",       // Any network (default: none)
+    },
+
+저장 후
+/migrations 에서
+/2_deploy_파일명.sol 생성
+2_이름.sol 형식으로 생성해야 함
+배포시 숫자를 기억함
+reset하면 배포한 계약 다 날라감
+
+
+계약의 배포
+truffle migrate
+또는
+truffle migrate --network development
+
+
+계약의 method실행
+ truffle console 
+또는
+ truffle console --network development
+으로 접속하여
+h = await hi.at("0xB504a1A14869B6B0352ad1a29d6e610dD7D61392")
+인스턴스 생성 후
+h.say()
+
+여기서는
+web3.eth.getBalance(address)
+가능

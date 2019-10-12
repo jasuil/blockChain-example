@@ -1,6 +1,6 @@
 ﻿//lecture
 https://drive.google.com/file/d/1lRC4nE3IXnqD20Azn0rhEOjnHPWGkWwM/view
-
+or http://blt.ly/2lGDO2E
 
 계약은 어떻게 네트워크에서 이용하는가??
 abi는 메타정보로 contract의 주소를 이용하여 abi 를 호출하는 방식

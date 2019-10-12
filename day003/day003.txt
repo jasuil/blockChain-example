@@ -82,6 +82,10 @@ reset하면 배포한 계약 다 날라감
 truffle migrate
 또는
 truffle migrate --network development
+또는
+truffle deploy
+또는
+truffle deploy --network development
 
 
 계약의 method실행

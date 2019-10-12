@@ -1,6 +1,6 @@
 var hi = artifacts.require("hi")
 
-contract("hi", function(accounts) {
+contract("hi first test", function(accounts) {
 
   it ("should be same as constructor argument", function (){
     return hi.deployed().then(function(instance) {
@@ -27,11 +27,11 @@ contract("hi", function(accounts) {
   it("should be changed state variable", async function (){
 
     const gasPrice = web3.utils.toWei("1", "shannon")
-    console.log(gasPrice)
+    //console.log(gasPrice)
     const hi4 = await hi.deployed()
     const tx = await hi4.setGreeting("hi, jasuil", {from: accounts[1], gasPrice})
     const greeting4 = await hi4.say()
-    console.log(tx)
+    //console.log(tx)
     assert.equal(greeting4, "hi, jasuil")
   })
 

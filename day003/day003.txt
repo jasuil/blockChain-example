@@ -20,3 +20,39 @@ npx create-react-app myreact
 atom설치
 플러그인 설치
 platformio-ide-terminal -> ctrl + ~ -> terminal
+
+truffle설치
+npm install -g truffle@5.0.36
+
+truffle접속
+http://trufflesuite.com
+
+윈도우에서 트러플에러 잡기
+windows icon + x + a (관리자용 powershell)
+ npm install -g --production windows-build-tools --vs2015
+
+설치확인
+npm config list
+
+
+트러플 프로젝트 생성
+폴더 하나 만들고
+truffle unbox react 실행
+
+위의 실행은 아래 두 문장과 같음
+truffle init
+npm create-react-app client
+
+
+http://trufflesuite.com
+에서
+suit>ganache
+
+->Need another OS download?
+
+아래 v2.1.1 - This is not pudding 🥄 에서
+Ganache-2.1.1-win-x64.appx 
+또는
+Ganache-2.1.1-win-setup.exe
+
+-> quick start

@@ -9,6 +9,7 @@ import Loader from 'react-loader-spinner';
 
 import getWeb3 from './utils/getWeb3';
 import SimpleStorage from './contracts/SimpleStorage';
+import EventList from './EventList'
 
 import './css/bootstrap.min.css';
 import './css/style.css';
@@ -24,7 +25,8 @@ class Main extends Component {
 
         val: 0,
         storedData: '',
-        pending: false
+        pending: false,
+        eventList: []
     };
 
     async componentDidMount() {
@@ -40,6 +42,8 @@ class Main extends Component {
           deployedNetwork && deployedNetwork.address,
         )
 
+        /*
+        //todo3
         instance.events.Change()
         .on('data', (event) => {
           this.handleEvent(event);
@@ -47,6 +51,14 @@ class Main extends Component {
         .on('error', (err)=>{console.log(err)})
 
         console.log(deployedNetwork.address);
+*/
+        //todo4 equals todo3
+        web3.eth.subscribe("logs", {address: instance.address})
+        .on('data', (log) => {
+          this.handleEventLog(log); //see another todo4
+        })
+        .on('error', (err) => console.log(err))
+
 
         this.setState({web3, accounts, networkId, contract: instance})
       } catch (error){
@@ -73,9 +85,16 @@ class Main extends Component {
       storedData: event.returnValues.newVal})
     }
 
-  //handleEventLog = (log) => {
+  //todo4
+  handleEventLog = (log) => {
+  const {web3} = this.state
+  const params = [{type: 'string', name: 'message'}
+  , {type: 'uint256', name: 'newVal'}]
+  const returnValues = web3.eth.abi.decodeLog(params, log.data)
+  this.setState({pending: !this.state.pending,
+                storedData: returnValues.newVal})
+ }
 
-//}
     handleChange = (e) => {
 
         let val = 0;
@@ -129,8 +148,23 @@ class Main extends Component {
                                 </div>
                                 <div style={{display:"inline-block", float:"right"}}>
                                     {this.state.pending ? <Loader type="Grid" color="#CE62D4" height="50" width="50"/> : null}
-                                    
+
                                 </div>
+                            </Panel.Body>
+                        </Panel>
+                    </Col>
+                </Row>
+
+                <Row style={{marginTop:'10px'}}>
+                    <Col md={5}>
+                        <Panel bsStyle="info">
+                            <Panel.Heading>
+                                <Panel.Title>
+                                    <Glyphicon glyph="signal" /> Log History
+                                </Panel.Title>
+                            </Panel.Heading>
+                            <Panel.Body>
+                              <EventList result = {this.state.eventList} />
                             </Panel.Body>
                         </Panel>
                     </Col>

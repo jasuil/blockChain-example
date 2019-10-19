@@ -19,3 +19,11 @@ truffle sample
 
 truffle exec ./send_u.js
 --> 10이더 전송
+
+
+
+react app작성
+
+
+app에 이력추가
+https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#getpastevents

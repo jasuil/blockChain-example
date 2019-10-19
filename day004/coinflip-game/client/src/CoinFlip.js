@@ -62,7 +62,7 @@ class CoinFlip extends Component {
         //TODO-2
         try {
           await contract.methods.revealResult().send({from: accounts[0]})
-
+          
           this.saveBetStatus("")
           this.setState({pending: false})
         } catch (error) {
@@ -96,7 +96,7 @@ class CoinFlip extends Component {
                     const r = await contract.methods.placeBet(this.state.checked).send(
                       {from:accounts[0],
                        value:web3.utils.toWei(String(this.state.value), 'ether')})
-                    console.log(r.transactionHash);
+                    console.log("val: ", this.state.value , ", hash:", r.transactionHash);
                     this.saveBetStatus(r.transactionHash)
                     this.setState({pending: false})
                 }

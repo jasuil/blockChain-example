@@ -133,3 +133,10 @@ local_geth 네트워크로 접속 후
 send_u.js
 --->toAddr 에 넣기
 
+
+
+동일한 온라인 과정
+inflearn
+
+-->coldmind
+리액트로 구현하는 블록체인

@@ -48,3 +48,19 @@ localhost:5777
 루트폴더에서
 truffle console
 exec ./send_u.js
+
+/********* 주의 *********/
+gahache를 새로 시작하면
+truffle migrate --reset
+해야 함
+/********* 주의 *********/
+
+이벤트 관련 문서
+web3js.readthedocs.io
+
+root director 에서
+truffle sample
+
+ truffle exec ./send_u.js
+--> 10이더 전송
+

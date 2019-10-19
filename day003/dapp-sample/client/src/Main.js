@@ -40,7 +40,13 @@ class Main extends Component {
           deployedNetwork && deployedNetwork.address,
         )
 
-console.log(deployedNetwork.address);
+        instance.events.Change()
+        .on('data', (event) => {
+          this.handleEvent(event);
+        })
+        .on('error', (err)=>{console.log(err)})
+
+        console.log(deployedNetwork.address);
 
         this.setState({web3, accounts, networkId, contract: instance})
       } catch (error){
@@ -62,6 +68,14 @@ console.log(deployedNetwork.address);
         }
     }
 
+    handleEvent = (event) => {
+      this.setState({pending: !this.state.pending,
+      storedData: event.returnValues.newVal})
+    }
+
+  //handleEventLog = (log) => {
+
+//}
     handleChange = (e) => {
 
         let val = 0;
@@ -114,7 +128,8 @@ console.log(deployedNetwork.address);
                                     </p>
                                 </div>
                                 <div style={{display:"inline-block", float:"right"}}>
-                                    Loading Spinner
+                                    {this.state.pending ? <Loader type="Grid" color="#CE62D4" height="50" width="50"/> : null}
+                                    
                                 </div>
                             </Panel.Body>
                         </Panel>

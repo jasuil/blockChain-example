@@ -30,5 +30,32 @@ https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#getpastevents
 
 
 
+
+/**********************************/
 동전 던지기 게임
 http://bit.ly/2kwIo3e
+
+conflip-game
+/client 
+---> npm install
+
+게임의 컴파일과 배포
+/conflip-game
+truffle compile
+truffle migrate
+
+
+dice2.win
+
+
+//react game app
+truffle networks
+
+--> send_h.js 의 주소에 복사
+
+truffle exec ./send_h.js
+또는 
+truffle console
+exec ./send_h.js
+
+앱 새로고침하여 확인

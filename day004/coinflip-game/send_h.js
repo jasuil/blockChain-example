@@ -1,7 +1,7 @@
 //컨트랙트
 module.exports = function(callback) {
 
-    const toAddr = "0xEf0F089f0D03fF4CC1a3188068D190109126379F";
+    const toAddr = "0x9FB674474931D0cEfed3369536193a1af6157bd3";
     web3.eth.getAccounts().then((accounts) => {
         web3.eth.sendTransaction(
             {from:accounts[2],

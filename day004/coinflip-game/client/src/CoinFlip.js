@@ -37,7 +37,11 @@ class CoinFlip extends Component {
     handleClickCoin = (e) => {
 
         //TODO-1
-
+        if(e.target.id === 'Heads') {
+          this.setState({checked: 2})
+        } else if(e.target.id === 'Tails') {
+            this.setState({checked: 1})
+        }
     };
 
     handleClickFlip = async () => {
@@ -56,7 +60,15 @@ class CoinFlip extends Component {
         this.setState({pending: true});
 
         //TODO-2
+        try {
+          await contract.methods.revealResult().send({from: accounts[0]})
 
+          this.saveBetStatus("")
+          this.setState({pending: false})
+        } catch (error) {
+          console.log(error.message);
+          this.setState({pending: false})
+        }
     };
 
     handleClickBet = async () => {
@@ -81,7 +93,12 @@ class CoinFlip extends Component {
                 if (this.checkBetStatus()) {
 
                     //TODO-3
-
+                    const r = await contract.methods.placeBet(this.state.checked).send(
+                      {from:accounts[0],
+                       value:web3.utils.toWei(String(this.state.value), 'ether')})
+                    console.log(r.transactionHash);
+                    this.saveBetStatus(r.transactionHash)
+                    this.setState({pending: false})
                 }
 
             } catch (error) {
@@ -176,7 +193,9 @@ class CoinFlip extends Component {
             );
 
             //TODO-4
-
+            instance.events.Reveal()
+              .on('data', (event) => this.watchEvent(event))
+              .on('error', (error) => console.log(error))
 
             this.setState({web3, accounts, contract: instance}, this.getHouseBalance);
 

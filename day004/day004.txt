@@ -59,3 +59,77 @@ truffle console
 exec ./send_h.js
 
 앱 새로고침하여 확인
+
+
+
+
+/************************************/
+로컬 이더리움 네트워크에 배포
+
+docker start eth-kosmo (도커로 첫 시간에 컨테이너 생성한 것)
+로그 보기
+docker logs -f eth-kosmo
+새창으로 컨테이너에 접속
+docker exec -it eth-kosmo /bin/bash
+
+root 확인
+cd
+pwd
+
+geth 접속
+geth attach ipc:/root/edu/geth.ipc
+
+eth.mining
+
+miner.start(1)
+
+eth.coinbase
+
+위 주소 복사 후
+eth.getBalance(주소)
+
+
+conflict game의
+truffle_config.js
+--->local_geth
+주석제거
+
+
+새창에서
+truffle compile
+truffle migrate --network local_geth
+--> password lock!!!
+
+//unlocking
+
+
+아까 geth콘솔에서
+personal.unlockAccount(주소, "12345678", 0) //0은 락 해제 시간
+
+
+이제 아까 새창에서
+ truffle migrate --network local_geth
+
+
+metamask에 가서 local_geth
+8545 port에 접속하기
+
+
+트러플 콘솔에 접속
+truffle console --network local_geth
+
+
+send_h.js에서 변경
+from:accounts[2] --> from:accounts[0]
+그리고 
+toAddr = network 의 local_geth 주소 넣기
+
+send_u.js변경
+from:accounts[2] --> from:accounts[0]
+그리고 
+metamask에 
+local_geth 네트워크로 접속 후
+첫 번째 계정의 주소를
+send_u.js
+--->toAddr 에 넣기
+

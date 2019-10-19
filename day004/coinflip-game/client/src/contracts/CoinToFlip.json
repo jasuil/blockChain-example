@@ -16052,6 +16052,72 @@
     "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
   "networks": {
+    "44": {
+      "events": {
+        "0xbd515cb7fe6810ea1d996c4efb3231c8b281498ca8062a4ec905d41943824bdf": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "gambler",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "reveal",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Reveal",
+          "type": "event",
+          "signature": "0xbd515cb7fe6810ea1d996c4efb3231c8b281498ca8062a4ec905d41943824bdf"
+        },
+        "0xd4f43975feb89f48dd30cabbb32011045be187d1e11c8ea9faa43efc35282519": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "beneficiary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Payment",
+          "type": "event",
+          "signature": "0xd4f43975feb89f48dd30cabbb32011045be187d1e11c8ea9faa43efc35282519"
+        },
+        "0xac464fe4d3a86b9121261ac0a01dd981bfe0777c7c9d9c8f4473d31a9c0f9d2d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "beneficiary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "FailedPayment",
+          "type": "event",
+          "signature": "0xac464fe4d3a86b9121261ac0a01dd981bfe0777c7c9d9c8f4473d31a9c0f9d2d"
+        }
+      },
+      "links": {},
+      "address": "0x260a9C73F32C7D93a0e6221c6f2c3bE9f19ce162",
+      "transactionHash": "0x1ecc07b51c27c98daaaf6c640d67140c3c7971c5f0569d852c205da8c05dd8b3"
+    },
     "5777": {
       "events": {
         "0xbd515cb7fe6810ea1d996c4efb3231c8b281498ca8062a4ec905d41943824bdf": {
@@ -16120,7 +16186,7 @@
     }
   },
   "schemaVersion": "3.0.16",
-  "updatedAt": "2019-10-19T05:33:45.432Z",
+  "updatedAt": "2019-10-19T08:09:00.919Z",
   "devdoc": {
     "methods": {}
   },

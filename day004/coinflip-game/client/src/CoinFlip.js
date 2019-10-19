@@ -152,8 +152,13 @@ class CoinFlip extends Component {
         }
 
         //TODO-5
+        const r = await contract.methods.refundBet().send({from: accounts[0]})
 
+        console.log('r=>', r)
 
+        if(r.transactionHash !== "") {
+          this.saveBetStatus("")
+        }
     }
 
 

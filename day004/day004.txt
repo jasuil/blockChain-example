@@ -27,3 +27,8 @@ react app작성
 
 app에 이력추가
 https://web3js.readthedocs.io/en/v1.2.1/web3-eth-contract.html#getpastevents
+
+
+
+동전 던지기 게임
+http://bit.ly/2kwIo3e

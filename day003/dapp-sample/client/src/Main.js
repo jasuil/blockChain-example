@@ -91,6 +91,9 @@ class Main extends Component {
   const params = [{type: 'string', name: 'message'}
   , {type: 'uint256', name: 'newVal'}]
   const returnValues = web3.eth.abi.decodeLog(params, log.data)
+
+  this.getPastEvents(log.blockNumber)
+
   this.setState({pending: !this.state.pending,
                 storedData: returnValues.newVal})
  }
@@ -104,6 +107,18 @@ class Main extends Component {
         this.setState({val});
     }
 
+    getPastEvents = (blockNumber) => {
+      const {contract} = this.state
+      let arr = []
+      const n = parseFloat(blockNumber)
+      const fromBlock = n - 4 //latest 5 event
+      if(fromBlock >= 0) {
+        contract.getPastEvents("Change", {fromBlock}).then((events) => {
+          arr= [...events] //spread operater
+          this.setState({eventList: arr})
+        })
+      }
+    }
 
     render() {
 

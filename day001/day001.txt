@@ -1,4 +1,6 @@
-﻿/docker folder image making
+install geth network
+#make docker image file
+/docker folder image making
 docker build -t eth-img .
 
 

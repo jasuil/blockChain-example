@@ -22,7 +22,7 @@ geth --datadir {YOURDIR} init {GENESISFILE_NAME}
 
 run [private network](https://geth.ethereum.org/docs/interface/private-network) and check blocks on cli mode
 ```
-geth --datadir {YOURDIR} --networkid {YOUR DESIRING PORT NOT IN FROM 1 TO 4, MAIN NET}
+geth --datadir {YOURDIR} --networkid="{YOUR DESIRING PORT NOT IN FROM 1 TO 4, MAIN NET}"
 ```
 
 and [etc](https://geth.ethereum.org/docs/interface/mining)
